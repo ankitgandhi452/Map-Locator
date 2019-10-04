@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/TD-React-Challenge-Test-1/static/css/main.61123782.chunk.css",
-    "main.js": "/TD-React-Challenge-Test-1/static/js/main.865b03e1.chunk.js",
-    "main.js.map": "/TD-React-Challenge-Test-1/static/js/main.865b03e1.chunk.js.map",
-    "runtime-main.js": "/TD-React-Challenge-Test-1/static/js/runtime-main.a06afadb.js",
-    "runtime-main.js.map": "/TD-React-Challenge-Test-1/static/js/runtime-main.a06afadb.js.map",
-    "static/css/2.ec630dec.chunk.css": "/TD-React-Challenge-Test-1/static/css/2.ec630dec.chunk.css",
-    "static/js/2.c89db0c6.chunk.js": "/TD-React-Challenge-Test-1/static/js/2.c89db0c6.chunk.js",
-    "static/js/2.c89db0c6.chunk.js.map": "/TD-React-Challenge-Test-1/static/js/2.c89db0c6.chunk.js.map",
-    "index.html": "/TD-React-Challenge-Test-1/index.html",
-    "precache-manifest.cdcab4a89d0f08c8e541ae95d6d6b089.js": "/TD-React-Challenge-Test-1/precache-manifest.cdcab4a89d0f08c8e541ae95d6d6b089.js",
-    "service-worker.js": "/TD-React-Challenge-Test-1/service-worker.js",
-    "static/css/2.ec630dec.chunk.css.map": "/TD-React-Challenge-Test-1/static/css/2.ec630dec.chunk.css.map",
-    "static/css/main.61123782.chunk.css.map": "/TD-React-Challenge-Test-1/static/css/main.61123782.chunk.css.map",
-    "static/media/index.css": "/TD-React-Challenge-Test-1/static/media/roboto-latin-900italic.ebf6d164.woff2"
+    "main.css": "/Map-Locator/static/css/main.61123782.chunk.css",
+    "main.js": "/Map-Locator/static/js/main.6870d9d0.chunk.js",
+    "main.js.map": "/Map-Locator/static/js/main.6870d9d0.chunk.js.map",
+    "runtime-main.js": "/Map-Locator/static/js/runtime-main.45d2e52a.js",
+    "runtime-main.js.map": "/Map-Locator/static/js/runtime-main.45d2e52a.js.map",
+    "static/css/2.757115df.chunk.css": "/Map-Locator/static/css/2.757115df.chunk.css",
+    "static/js/2.c89db0c6.chunk.js": "/Map-Locator/static/js/2.c89db0c6.chunk.js",
+    "static/js/2.c89db0c6.chunk.js.map": "/Map-Locator/static/js/2.c89db0c6.chunk.js.map",
+    "index.html": "/Map-Locator/index.html",
+    "precache-manifest.f7f12ea18b3c11565404f7b32d4b92f5.js": "/Map-Locator/precache-manifest.f7f12ea18b3c11565404f7b32d4b92f5.js",
+    "service-worker.js": "/Map-Locator/service-worker.js",
+    "static/css/2.757115df.chunk.css.map": "/Map-Locator/static/css/2.757115df.chunk.css.map",
+    "static/css/main.61123782.chunk.css.map": "/Map-Locator/static/css/main.61123782.chunk.css.map",
+    "static/media/index.css": "/Map-Locator/static/media/roboto-latin-900italic.ebf6d164.woff2"
   }
 }
