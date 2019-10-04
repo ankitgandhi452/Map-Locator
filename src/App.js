@@ -7,7 +7,7 @@ import MapContainer from 'components/maps/MapContainer';
 import { theme } from 'configurations/materialUI/theme';
 import React from 'react';
 import 'typeface-roboto';
-import './App.css';
+// import './App.css';
 
 function App() {
   return (
