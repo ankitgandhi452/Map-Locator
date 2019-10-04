@@ -1,0 +1,18 @@
+<Grid key={1} container direction="column">
+                <Grid item xs={12} sm={6} md={6} lg={6}>
+                        <Paper>
+                            <Map
+                                latitude={this.props.currentLocation.latitude}
+                                longitude={this.props.currentLocation.longitude}
+                                googleMapURL={mapUrl.base}
+                                loadingElement={<Loader />}
+                                containerElement={<div style={{ display: 'flex', flex: 1, height: `400px` }} />}
+                                mapElement={<div style={{display: 'flex', flex: 1 }} />}
+                            />
+                            
+                        </Paper>
+                </Grid>
+                <Loader
+                    visible={this.props.loading}
+                />
+            </Grid>
