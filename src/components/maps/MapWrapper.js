@@ -60,7 +60,7 @@ export default class MapWrapper extends Component {
     }
 
     render() {
-        const maxHeight = (window.innerWidth > window.innerHeight) ? "500px" : "300px"
+        const maxHeight = (window.innerWidth > window.innerHeight) ? "400px" : "300px"
         return (
             <Grid key={1} container style={{overflow: 'auto'}}>
                 <Grid item xs={12} sm={8} md={8} lg={8} style={{marginBottom: 40}}>

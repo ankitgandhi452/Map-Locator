@@ -49,7 +49,7 @@ export default class CustomMapMarker extends Component {
                     >
                         <div style={{padding: 16}}>
                             <div>
-                                <Typography variant="subtitle1">
+                                <Typography variant="body2">
                                     {`${marker.name}, ${marker.vicinity}`}
                                 </Typography>
                             </div>
