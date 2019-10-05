@@ -1,9 +1,16 @@
+import indigo from '@material-ui/core/colors/indigo';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Autocomplete from 'react-google-autocomplete';
 
-const color = "#fff"
+const activeColor = indigo[500];
 export default class SearchPalces extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            color: "#fff"
+        }
+    }
     static propTypes = {
         setCurrentLocation: PropTypes.func
     }
@@ -17,6 +24,15 @@ export default class SearchPalces extends Component {
             this.props.setCurrentLocation(currentPostion);
         }
     }
+
+    focus = () => {
+        this.setState({color: activeColor})
+    }
+
+    blur = () => { 
+        this.setState({color: "#fff"})
+    }
+    
     render() {
         return (
             <Autocomplete
@@ -30,11 +46,13 @@ export default class SearchPalces extends Component {
                     color: '#fff',
                     backgroundColor: 'transparent',
                     border: '0px',
-                    borderBottom: `1px solid ${color}`
+                    borderBottom: `1px solid ${this.state.color}`
                 }}
                 placeholder={'Enter area to explore'}
                 onPlaceSelected={ this.onPlaceSelected }
                 types={['(regions)']}
+                onFocus={this.focus}
+                onBlur={this.blur}
             />
         )
     }
