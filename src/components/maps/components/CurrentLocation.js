@@ -79,7 +79,7 @@ class CurrentLocation extends Component {
                     left={0}
                     height={'100vh'}
                     width={'100vw'}
-                    bgcolor={'rgba(255,255,255, 0.7)'}
+                    bgcolor={'rgba(0,0,0,1)'}
                     display={'flex'}
                     justifyContent={'center'}
                     alignItems={'center'}
@@ -120,7 +120,7 @@ class CurrentLocation extends Component {
                         left={0}
                         height={'100vh'}
                         width={'100vw'}
-                        bgcolor={'rgba(255,255,255, 0.7)'}
+                        bgcolor={'rgba(0,0,0,1)'}
                         display={'flex'}
                         justifyContent={'center'}
                         alignItems={'center'}
