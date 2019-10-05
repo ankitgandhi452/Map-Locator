@@ -48,7 +48,7 @@ npm run deploy
 
 ## Built With
 
-* [Create React Applicatio](https://github.com/facebook/create-react-app) - The web framework used
+* [Create React Application](https://github.com/facebook/create-react-app) - The web framework used
 * [React Google Maps](https://github.com/google-map-react/google-map-react) - To Draw the maps using Google Map API & get nearby places.
 * [React Google Autocomplete](https://github.com/ErrorPro/react-google-autocomplete#readme) - To search for places and set users location.
 * [React Geolocated](https://github.com/no23reason/react-geolocated) - To get the users location using Geolocation API
