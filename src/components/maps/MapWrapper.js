@@ -1,15 +1,18 @@
+import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormLabel from '@material-ui/core/FormLabel';
+import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import DoneIcon from '@material-ui/icons/Done';
+import FilterListIcon from '@material-ui/icons/FilterList';
 import Loader from 'helpers/components/Loader';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { mapUrl } from '../../configurations/urls/mapUrl';
 import Map from './components/Map';
+
 
 export default class MapWrapper extends Component {
     static propTypes = {
@@ -20,29 +23,44 @@ export default class MapWrapper extends Component {
         selectedTypes: PropTypes.array.isRequired,
         setCurrentLocation: PropTypes.func.isRequired,
         filterChange: PropTypes.func.isRequired,
+        clearFilter: PropTypes.func.isRequired,
         onMapMounted: PropTypes.func,
     }
 
     getCheckBox = (type, index) => {
         const isChecked = this.props.selectedTypes.includes(type);
-        return (
-            <FormControlLabel
-                control={
-                    <Checkbox
-                        checked={isChecked}
-                        onChange={this.props.filterChange(type)}
-                        value={type}
-                        color='primary'
+        const showString = _.startCase(type);
+        if (isChecked) {
+            return (
+                <Chip
+                    key={index}
+                    avatar={<Avatar>{_.first(showString)}</Avatar>}
+                    label={showString}
+                    clickable
+                    color={"primary"}
+                    onClick={() => { this.props.filterChange(type, !isChecked) }}
+                    onDelete={() => { this.props.filterChange(type, !isChecked) }}
+                    deleteIcon={<DoneIcon /> }
+                    style={{margin: "5px"}}
+                />
+            )
+        } else {
+                return (
+                    <Chip
+                        key={index}
+                        avatar={<Avatar>{_.first(showString)}</Avatar>}
+                        label={showString}
+                        clickable
+                        color={"default"}
+                        onClick={() => { this.props.filterChange(type, !isChecked) }}
+                        style={{margin: "5px"}}
                     />
-                }
-                label={type}
-                key={index}
-            />
-        )
+                )
+        }
     }
 
     render() {
-        console.log('map wrapper render')
+        const maxHeight = (window.innerWidth > window.innerHeight) ? "500px" : "300px"
         return (
             <Grid key={1} container style={{overflow: 'auto'}}>
                 <Grid item xs={12} sm={8} md={8} lg={8} style={{marginBottom: 40}}>
@@ -51,7 +69,7 @@ export default class MapWrapper extends Component {
                         longitude={this.props.currentLocation.longitude}
                         googleMapURL={mapUrl.base}
                         loadingElement={<Loader />}
-                        containerElement={<div style={{  height: `400px` }} />}
+                        containerElement={<div style={{  height: `${window.innerWidth}px`, maxHeight: `${maxHeight}` }} />}
                         mapElement={<div style={{ height: '100%' }} />}
                         setCurrentLocation={this.props.setCurrentLocation}
                         onMapMounted={this.props.onMapMounted}
@@ -60,15 +78,25 @@ export default class MapWrapper extends Component {
                             
                 </Grid>
                 <Grid item xs={12} sm={4} md={4} lg={4}>
-                    <Box color="text.primary" p={4}>
-                        <FormControl component="fieldset" >
-                            <FormLabel component="legend">Filter Places</FormLabel>
-                                <FormGroup>
+                    <Box px={2} height='100%'>  
+                        <Paper style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', height: '100%' }}>
+                            <Box color="text.primary" p={2}>  
+                                <Typography variant="h4" component="h2" color='textPrimary' gutterBottom={true}>
+                                <FilterListIcon /> Filters {this.props.selectedTypes.length > 0 && <Chip
+                                        avatar={<Avatar>{`X`}</Avatar>}
+                                        label={`clear`}
+                                        clickable
+                                        color={"secondary"}
+                                        variant={'outlined'}
+                                        style={{ float: 'right' }}
+                                        onClick={this.props.clearFilter}
+                                    />}
+                                </Typography>
                                 {this.props.types.map((type, index) => (
-                                    this.getCheckBox(type, index)
+                                        this.getCheckBox(type, index)
                                 ))}
-                                </FormGroup>
-                        </FormControl>
+                            </Box>
+                        </Paper>
                     </Box>
                 </Grid>
             </Grid>

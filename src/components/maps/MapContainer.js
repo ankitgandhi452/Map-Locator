@@ -42,9 +42,9 @@ class MapContainer extends Component {
         this.mapRef = ref
     }
 
-    filterChange = name => event => { 
-        console.log(name, event.target.checked)
-        const isChecked = event.target.checked;
+    filterChange = (name, checked) => { 
+        console.log(name, checked)
+        const isChecked = checked;
         let selectedTypes = [...this.state.selectedTypes];
         if (!isChecked) {
             let index = _.findIndex(selectedTypes, (type) => { 
@@ -56,6 +56,13 @@ class MapContainer extends Component {
         } else {
             selectedTypes.push(name);
         }
+        this.fetchPlaces(this.state.currentLocation.latitude, this.state.currentLocation.longitude, selectedTypes).then(places => {
+            this.setter.setState({ places: places, selectedTypes: selectedTypes })
+        })
+    }
+
+    clearFilter = () => {
+        let selectedTypes = [];
         this.fetchPlaces(this.state.currentLocation.latitude, this.state.currentLocation.longitude, selectedTypes).then(places => {
             this.setter.setState({ places: places, selectedTypes: selectedTypes })
         })
@@ -126,6 +133,7 @@ class MapContainer extends Component {
                     types={this.state.types}
                     selectedTypes={this.state.selectedTypes}
                     filterChange={this.filterChange}
+                    clearFilter={this.clearFilter}
                 />
             )
         }
