@@ -1,4 +1,8 @@
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Loader from 'helpers/components/Loader';
 import PropTypes from 'prop-types';
@@ -62,6 +66,10 @@ class CurrentLocation extends Component {
         this.setter.cancel()
     }
 
+    refresh = () => {
+        window.location.reload()
+    }
+
     renderComponent = () => {
         if (this.props.getLocation && (!this.props.isGeolocationAvailable || !this.props.isGeolocationEnabled)) {
             return (
@@ -75,11 +83,32 @@ class CurrentLocation extends Component {
                     display={'flex'}
                     justifyContent={'center'}
                     alignItems={'center'}
+                    p={4}
                 >
-                    <Typography variant="h6">
-                        Please try on chrome if you are running on a local host.
-                        Unable to get the geoloaction
-                    </Typography>
+                    <Card >
+                        <CardContent>
+                            <Typography variant="h4" component="h2" color='error'>
+                                Unable to fecth the location
+                                
+                            </Typography>
+                            <Typography variant='h5'>
+                                <br />
+                                Possible problem would be:
+                            </Typography>
+                            <Typography color="textSecondary">
+                                <br />
+                                1. Please enable the location service on your browser. To enable it please refresh the page and allow the location service.
+                            </Typography>
+                            <Typography color="textSecondary">
+                                <br />
+                                2. If you are running in development mode please run on chrome browser.
+                            </Typography>
+                            
+                        </CardContent>
+                        <CardActions>
+                            <Button onClick={this.refresh} size="small">Refresh</Button>
+                        </CardActions>
+                    </Card>
                 </Box>
             )
         } else {
