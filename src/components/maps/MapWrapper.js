@@ -86,7 +86,6 @@ export default class MapWrapper extends Component {
                                         avatar={<Avatar>{`X`}</Avatar>}
                                         label={`clear`}
                                         clickable
-                                        color={"secondary"}
                                         variant={'outlined'}
                                         style={{ float: 'right' }}
                                         onClick={this.props.clearFilter}
